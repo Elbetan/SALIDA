@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #2c2c2c;
+      background-color: #2c2c2c; /* gris oscuro */
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -16,14 +16,15 @@
       margin: 0;
       text-align: center;
     }
-   h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: white;
-}
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: white; /* texto blanco */
+    }
     .botones {
-      display: flex;
-      gap: 2rem;
+      position: relative;
+      height: 100px;
+      width: 300px;
     }
     button {
       padding: 1rem 2rem;
@@ -32,10 +33,13 @@
       border-radius: 10px;
       cursor: pointer;
       transition: all 0.3s ease;
+      position: absolute;
     }
     .si {
       background-color: #4caf50;
       color: white;
+      left: 0;
+      top: 0;
     }
     .no {
       background-color: #f44336;
@@ -47,28 +51,34 @@
   <h1>¿Te gustaría salir conmigo este viernes?</h1>
   <div class="botones">
     <button class="si" onclick="responderSi()">Sí</button>
-    <button class="no" onclick="responderNo()">No</button>
+    <button class="no" id="botonNo" onclick="moverBotonNo()">No</button>
   </div>
 
   <script>
-    const enlacesNo = [
-      "https://es.wikipedia.org/wiki/Amor",
-      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "https://www.google.com/search?q=como+decir+si+sin+decir+si",
-      "https://open.spotify.com/track/1EzrEOXmMH3G43AXT1y7pA",
-      "https://media.giphy.com/media/j2mYjR5dLZcA8/giphy.gif",
-    ];
-
-    let intento = 0;
+    let movimientos = 0;
+    const botonNo = document.getElementById("botonNo");
 
     function responderSi() {
       window.location.href = "https://tu-link-deseado.com"; // <- aquí me das luego el destino
     }
 
-    function responderNo() {
-      const destino = enlacesNo[intento % enlacesNo.length];
-      intento++;
-      window.location.href = destino;
+    function moverBotonNo() {
+      if (movimientos >= 5) {
+        botonNo.remove();
+        return;
+      }
+
+      const contenedor = document.querySelector(".botones");
+      const maxX = contenedor.clientWidth - botonNo.offsetWidth;
+      const maxY = contenedor.clientHeight - botonNo.offsetHeight;
+
+      const nuevaX = Math.floor(Math.random() * maxX);
+      const nuevaY = Math.floor(Math.random() * maxY);
+
+      botonNo.style.left = `${nuevaX}px`;
+      botonNo.style.top = `${nuevaY}px`;
+
+      movimientos++;
     }
   </script>
 </body>
