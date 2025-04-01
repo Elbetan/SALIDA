@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pregunta Especial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffeaea;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+    .botones {
+      display: flex;
+      gap: 2rem;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .si {
+      background-color: #4caf50;
+      color: white;
+    }
+    .no {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>¿Te gustaría salir conmigo este viernes?</h1>
+  <div class="botones">
+    <button class="si" onclick="responderSi()">Sí</button>
+    <button class="no" onclick="responderNo()">No</button>
+  </div>
+
+  <script>
+    const enlacesNo = [
+      "https://es.wikipedia.org/wiki/Amor",
+      "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "https://www.google.com/search?q=como+decir+si+sin+decir+si",
+      "https://open.spotify.com/track/1EzrEOXmMH3G43AXT1y7pA",
+      "https://media.giphy.com/media/j2mYjR5dLZcA8/giphy.gif",
+    ];
+
+    let intento = 0;
+
+    function responderSi() {
+      window.location.href = "https://tu-link-deseado.com"; // <- aquí me das luego el destino
+    }
+
+    function responderNo() {
+      const destino = enlacesNo[intento % enlacesNo.length];
+      intento++;
+      window.location.href = destino;
+    }
+  </script>
+</body>
+</html>
