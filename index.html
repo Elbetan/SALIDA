@@ -12,23 +12,25 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 1rem;
       text-align: center;
     }
     h1 {
-      font-size: 2rem;
+      font-size: 1.5rem;
       margin-bottom: 2rem;
       color: white;
     }
     .botones {
       position: relative;
-      height: 300px;
-      width: 500px;
+      height: 200px;
+      width: 100%;
+      max-width: 320px;
     }
     button {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
       border: none;
       border-radius: 10px;
       cursor: pointer;
@@ -59,7 +61,7 @@
     const botonNo = document.getElementById("botonNo");
 
     function responderSi() {
-      window.location.href = "sms:+573184103576?body=%C2%A1Dije%20que%20s%C3%AD!%20%F0%9F%92%95";
+      window.location.href = "sms:+573184103576?body=Si%20Juan,%20nos%20vemos%20el%20viernes.%20%F0%9F%92%95";
     }
 
     function moverBotonNo() {
