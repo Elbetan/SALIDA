@@ -64,10 +64,12 @@
     let movimientos = 0;
     const botonNo = document.getElementById("botonNo");
 
+    // Redirigir a WhatsApp en lugar de SMS
     function responderSi() {
-      window.location.href = "sms:+573184103576?body=Si%20Juan,%20nos%20vemos%20el%20Viernes.";
+      window.location.href = "https://wa.me/573184103576?text=Si%20Juan,%20nos%20vemos%20el%20Viernes.";
     }
 
+    // Función para mover el botón "No" por la pantalla
     function moverBotonNo() {
       if (movimientos === 3) {
         alert("¿Es en serio? 😠");
@@ -80,13 +82,7 @@
 
       const contenedor = document.querySelector(".botones");
       const maxX = contenedor.clientWidth - botonNo.offsetWidth;
-      const maxY = contenedor.clientHeight - botonNo.offsetHeight;
-
-      const nuevaX = Math.floor(Math.random() * maxX);
-      const nuevaY = Math.floor(Math.random() * maxY);
-
-      botonNo.style.left = `${nuevaX}px`;
-      botonNo.style.top = `${nuevaY}px`;
+      const maxY = contenedor.clientHeight - botonNo
 
       movimientos++;
     }
